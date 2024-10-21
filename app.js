@@ -63,7 +63,7 @@ containerApp.innerHTML = `
     <div>
     <form class="newdebit-form">
     <input placeholder="Descrição">
-    <input typemode="number" placeholder="Valor">
+    <input typemode="numeric" placeholder="Valor">
     <input type="date">
     <label>
     Repetir
