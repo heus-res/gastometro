@@ -62,9 +62,9 @@ containerApp.innerHTML = `
     <div id="newdebit-container">
     <div>
     <form class="newdebit-form">
-    <input class="hginput" placeholder="Descrição">
-    <input class="hginput" inputmode="numeric" placeholder="Valor">
-    <input class="hginput" type="date">
+    <input class="hginput" placeholder="Descrição" style="height: 40px;">
+    <input class="hginput" inputmode="numeric" placeholder="Valor" style="height: 40px;">
+    <input class="hginput" type="date" style="background: none; height: 40px;">
     <label>
     Repetir
     <input type="checkbox" name="example" value="1">
