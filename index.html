@@ -7,9 +7,12 @@
     <link rel="apple-touch-icon" href="icon.png">
     <title>GastometroApp</title>
     <style>
+        :root{
+            --background-color: #5baf66;
+        }
         body{
             margin: 0;
-            background: #5baf66;
+            background: var(--background-color);
         }
         #header-container{
             position: fixed;
@@ -20,7 +23,7 @@
         .faixa{
             height: 50px;
             width: auto;
-            background: #5baf66;
+            background: var(--background-color);
             color: #fff;
             font-weight: bold;
             display: flex;
@@ -30,7 +33,7 @@
         .nav-date{
             height: 30px;
             width: auto;
-            background: #5baf66;
+            background: var(--background-color);
             display: flex;
             justify-content: space-between;
 
@@ -38,7 +41,7 @@
         .footer{
             height: 80px;
             width: auto;
-            background: #5baf66;  
+            background: var(--background-color);  
             position: fixed;
             bottom: 0;
             left: 0;
