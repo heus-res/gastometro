@@ -14,6 +14,9 @@ let debitName
 let debitValue
 let debitMaturity
 let btnAdd
+let value = new Date().getMonth()
+let mounths = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO']
+let year = new Date().getFullYear()
 
 function App(){
   containerApp.innerHTML = `
@@ -25,7 +28,7 @@ function App(){
         <div id="back-date">
             <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10.7672 7.5431C11.0672 7.25744 11.0788 6.78271 10.7931 6.48276C10.5074 6.18281 10.0327 6.17123 9.73276 6.4569L10.7672 7.5431ZM4.48276 11.4569C4.18281 11.7426 4.17123 12.2173 4.4569 12.5172C4.74256 12.8172 5.21729 12.8288 5.51724 12.5431L4.48276 11.4569ZM5.51724 11.4569C5.21729 11.1712 4.74256 11.1828 4.4569 11.4828C4.17123 11.7827 4.18281 12.2574 4.48276 12.5431L5.51724 11.4569ZM9.73276 17.5431C10.0327 17.8288 10.5074 17.8172 10.7931 17.5172C11.0788 17.2173 11.0672 16.7426 10.7672 16.4569L9.73276 17.5431ZM5 11.25C4.58579 11.25 4.25 11.5858 4.25 12C4.25 12.4142 4.58579 12.75 5 12.75V11.25ZM19 12.75C19.4142 12.75 19.75 12.4142 19.75 12C19.75 11.5858 19.4142 11.25 19 11.25V12.75ZM9.73276 6.4569L4.48276 11.4569L5.51724 12.5431L10.7672 7.5431L9.73276 6.4569ZM4.48276 12.5431L9.73276 17.5431L10.7672 16.4569L5.51724 11.4569L4.48276 12.5431ZM5 12.75H19V11.25H5V12.75Z" fill="#ffffff"></path> </g></svg>
         </div>
-        <div id="mounth-name"><span>JANEIRO</span>/<span>2024</span></div>
+        <div id="mounth-name"><span id="display-month"></span>/<span id="display-year"></span></div>
         <div id="next-date">
             <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13.2328 16.4569C12.9328 16.7426 12.9212 17.2173 13.2069 17.5172C13.4926 17.8172 13.9673 17.8288 14.2672 17.5431L13.2328 16.4569ZM19.5172 12.5431C19.8172 12.2574 19.8288 11.7827 19.5431 11.4828C19.2574 11.1828 18.7827 11.1712 18.4828 11.4569L19.5172 12.5431ZM18.4828 12.5431C18.7827 12.8288 19.2574 12.8172 19.5431 12.5172C19.8288 12.2173 19.8172 11.7426 19.5172 11.4569L18.4828 12.5431ZM14.2672 6.4569C13.9673 6.17123 13.4926 6.18281 13.2069 6.48276C12.9212 6.78271 12.9328 7.25744 13.2328 7.5431L14.2672 6.4569ZM19 12.75C19.4142 12.75 19.75 12.4142 19.75 12C19.75 11.5858 19.4142 11.25 19 11.25V12.75ZM5 11.25C4.58579 11.25 4.25 11.5858 4.25 12C4.25 12.4142 4.58579 12.75 5 12.75V11.25ZM14.2672 17.5431L19.5172 12.5431L18.4828 11.4569L13.2328 16.4569L14.2672 17.5431ZM19.5172 11.4569L14.2672 6.4569L13.2328 7.5431L18.4828 12.5431L19.5172 11.4569ZM19 11.25L5 11.25V12.75L19 12.75V11.25Z" fill="#ffffff"></path> </g></svg>        </div>
     </div>
@@ -45,55 +48,150 @@ function App(){
     </div>
  </div>
   `
+let nextDate = document.getElementById('next-date')
+let backDate = document.getElementById('back-date')
 debitContainer = document.getElementById('debit-container')
 debitName = document.querySelectorAll('.debit-name')
 debitValue = document.querySelectorAll('.debit-value')
 debitMaturity = document.querySelectorAll('.debity-maturity')
 btnAdd = document.getElementById('btn-add') 
+
+function updateDisplays(){
+    let displayMonth = document.getElementById('display-month')
+    let displayYear = document.getElementById('display-year')
+
+    displayMonth.innerText = getMonth()
+    displayYear.innerText = year
+}
+
+updateDisplays()
+
+function getMonth(){
+    return mounths[value]
+}
+
+nextDate.addEventListener('click',()=>{
+value++
+if(value > 11){
+    value = 0
+    year++
+}
+updateDisplays()
+})
+
+backDate.addEventListener('click',()=>{
+ value--
+ if(value < 0){
+    value = 11;
+    year--
+ }
+ updateDisplays()   
+})
+
 }
 App()
 
-function AddDebit(){
-containerApp.innerHTML = `
-  <div id="header-container">
+function AddDebit() {
+    containerApp.innerHTML = `
+    <div id="header-container">
     <div class="faixa">
-        <span>GASTOMETRO</span>
+    <span>GASTOMETRO</span>
     </div>
     <div style="height: 30px">
-    <div style="height: 30px;">
-    <div id="back-button" onclick="App()" style="width: 60px;display: flex;align-items: center;">
-<svg width="20px" height="20px" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="#ffffff"></path></g></svg>
-<span style="color: #fff;font-size: 16px;">Voltar</span>
-</div>
+    <div id="back-button" onclick="App()" style="width: 60px; display: flex; align-items: center;">
+    <svg width="20px" height="20px" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+    <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="#ffffff"></path>
+    </svg>
+    <span style="color: #fff; font-size: 16px;">Voltar</span>
     </div>
     </div>
     <div id="newdebit-container">
-    <div>
+    <div id="teste-form">
     <form class="newdebit-form">
-    <input id="iptdesc-debit" class="hginput" placeholder="Descrição" style="height: 40px; font-size: 16px"">
-    <input id="iptvalue-debit" class="hginput" inputmode="numeric" placeholder="Valor" style="height: 40px; font-size: 16px"">
-    <input id="iptdata-debit" class="hginput" type="date" style="background: none; height: 40px; border: solid 1px #000; font-size: 16px">
+    <input id="iptdesc-debit" class="hginput" placeholder="Descrição" style="height: 40px; font-size: 16px;" autocomplete="off">
+    <input id="iptvalue-debit" class="hginput" inputmode="numeric" placeholder="Valor" style="height: 40px; font-size: 16px;" autocomplete="off">
+    <input id="iptdata-debit" class="hginput" type="date" style="background: none; height: 40px; border: solid 1px #000; font-size: 16px;">
     <div>
-    <label>
+    <label style="display: flex;">
     Repetir
-    <input type="checkbox" name="example" value="1">
-    </label>
+    <div class="checkbox-slider">
+    <div class="slider-ball"></div>
     </div>
-    <div style="display: flex; flex-direction: column">
-    <label>
-    <input type="radio" name="fixo" value="2">
-    Fixo
-    </label>
-    <label>
-    <input type="radio" name="parcelado" value="3">
-    Parcelado
-    </label>
-    <label>
-    <input id="ipt-parcelas" type="text" style="width: auto" placeholder="N de Parcelas" style="width: 30px">
     </label>
     </div>
     </form>
     </div>
- </div>
-`
-}
+    <div style="padding: 5px">
+    <button id="btnsave-debit">Salvar</button>
+    </div>
+    </div>
+    </div>
+    `;
+
+    let checkRepetir = document.querySelector('.checkbox-slider');
+    let sliderBall = document.querySelector('.slider-ball');
+    let debitType 
+    let debitForm = document.querySelector('.newdebit-form')
+    let btnSaveDebit = document.getElementById('btnsave-debit')
+    let iptValueDebit = document.getElementById('iptvalue-debit')
+
+    iptValueDebit.addEventListener('input', () => {
+        // Remove tudo que não for dígito
+        let value = iptValueDebit.value.replace(/\D/g, '');
+    
+        // Converte para número e divide por 100
+        value = (value / 100).toFixed(2);
+    
+        // Formata como moeda
+        if (value > 0) {
+            iptValueDebit.value = 'R$ ' + value.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        } else {
+            iptValueDebit.value = '';
+        }
+    });
+    
+
+    checkRepetir.addEventListener('click', () => {
+        if (sliderBall.style.marginLeft === '0px' || sliderBall.style.marginLeft === '') {
+            sliderBall.style.marginLeft = '30px'; 
+            checkRepetir.style.background = 'var(--background-color)';
+            debitForm.insertAdjacentHTML('beforeend',`
+            <div id="Paymode" style="display: flex; flex-direction: column">
+            <label>
+            <input type="radio" name="option" value="2" checked>
+            Fixo
+            </label>
+            <label>
+            <input type="radio" name="option" value="3">
+            Parcelado
+            </label>
+            </div>
+            `)
+            addDebitType()
+        
+        } else {
+            let Paymode = document.getElementById('Paymode')  
+            Paymode.remove()
+            sliderBall.style.marginLeft = '0px';
+            checkRepetir.style.background = '#000';
+        }
+    });
+
+    // Adicionando eventos aos rádios
+    function addDebitType(){
+        debitType = document.getElementsByName('option');
+        for (let i = 0; i < debitType.length; i++) {
+            debitType[i].addEventListener('change', () => {
+                if(debitType[i].value === '3'){
+                    Paymode.insertAdjacentHTML('beforeend',`
+                    <input id="ipt-parcelas" type="text" inputmode="numeric" style="height:30px; width: auto;" placeholder="N de Parcelas" autocomplete="off">                            
+                        `)
+                }else{
+                    document.getElementById('ipt-parcelas').remove()
+                }
+            });
+        }}
+        btnSaveDebit.addEventListener('click',()=>{
+            console.log(iptValueDebit.value.replace(/[^0-9,.]/g,''))
+        })
+    }
