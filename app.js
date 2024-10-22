@@ -81,14 +81,15 @@ containerApp.innerHTML = `
     </div>
     <div>
     <label>
-    <input type="radio" name="fixo" value="2"
-    Fixo
+    <input type="radio" name="fixo" value="2" fixo="" <="" label="">
     </label>
     <label>
     <input type="radio" name="parcelado" value="3">
     Parcelado
     </label>
+    <label>
     <input id="ipt-parcelas" type="text" style="width: auto" placeholder="N de Parcelas">
+    </label>
     </div>
     </form>
     </div>
