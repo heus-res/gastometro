@@ -79,9 +79,10 @@ containerApp.innerHTML = `
     <input type="checkbox" name="example" value="1">
     </label>
     </div>
-    <div>
+    <div style="display: flex; flex-direction: column">
     <label>
-    <input type="radio" name="fixo" value="2" fixo="" <="" label="">
+    <input type="radio" name="fixo" value="2">
+    Fixo
     </label>
     <label>
     <input type="radio" name="parcelado" value="3">
