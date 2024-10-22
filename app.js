@@ -73,10 +73,23 @@ containerApp.innerHTML = `
     <input id="iptdesc-debit" class="hginput" placeholder="Descrição" style="height: 40px; font-size: 16px"">
     <input id="iptvalue-debit" class="hginput" inputmode="numeric" placeholder="Valor" style="height: 40px; font-size: 16px"">
     <input id="iptdata-debit" class="hginput" type="date" style="background: none; height: 40px; border: solid 1px #000; font-size: 16px">
+    <div>
     <label>
     Repetir
     <input type="checkbox" name="example" value="1">
+    </label>
+    </div>
+    <div>
     <label>
+    <input type="radio" name="fixo" value="2"
+    Fixo
+    </label>
+    <label>
+    <input type="radio" name="parcelado" value="3">
+    Parcelado
+    </label>
+    <input id="ipt-parcelas" type="text" style="width: auto" placeholder="N de Parcelas">
+    </div>
     </form>
     </div>
  </div>
