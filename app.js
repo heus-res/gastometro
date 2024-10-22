@@ -112,7 +112,7 @@ function AddDebit() {
     <input id="iptvalue-debit" class="hginput" inputmode="numeric" placeholder="Valor" style="height: 40px; font-size: 16px;" autocomplete="off">
     <input id="iptdata-debit" class="hginput" type="date" style="background: none; height: 40px; border: solid 1px #000; font-size: 16px;">
     <div>
-    <label style="display: flex;">
+    <label style="display: flex; font-size: 20px;">
     Repetir
     <div class="checkbox-slider">
     <div class="slider-ball"></div>
@@ -157,11 +157,11 @@ function AddDebit() {
             checkRepetir.style.background = 'var(--background-color)';
             debitForm.insertAdjacentHTML('beforeend',`
             <div id="Paymode" style="display: flex; flex-direction: column">
-            <label>
+            <label style="font-size: 20px">
             <input type="radio" name="option" value="2" checked>
             Fixo
             </label>
-            <label>
+            <label style="font-size: 20px">
             <input type="radio" name="option" value="3">
             Parcelado
             </label>
