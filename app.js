@@ -59,6 +59,9 @@ containerApp.innerHTML = `
     <div class="faixa">
         <span>GASTOMETRO</span>
     </div>
+    <div style="height: 30px">
+    <div>Voltar</div>
+    </div>
     <div id="newdebit-container">
     <div>
     <form class="newdebit-form">
