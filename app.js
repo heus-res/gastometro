@@ -89,7 +89,7 @@ containerApp.innerHTML = `
     Parcelado
     </label>
     <label>
-    <input id="ipt-parcelas" type="text" style="width: auto" placeholder="N de Parcelas">
+    <input id="ipt-parcelas" type="text" style="width: auto" placeholder="N de Parcelas" style="width: 30px">
     </label>
     </div>
     </form>
