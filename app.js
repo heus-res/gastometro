@@ -108,7 +108,7 @@ function AddDebit() {
     <form class="newdebit-form">
     <input id="iptdesc-debit" class="hginput" placeholder="Descrição" style="height: 40px; font-size: 16px;" autocomplete="off">
     <input id="iptvalue-debit" class="hginput" inputmode="numeric" placeholder="Valor" style="height: 40px; font-size: 16px;" autocomplete="off">
-    <input id="iptdata-debit" class="hginput" type="date" style="boder: solid 1px #000;background: none; height: 40px; font-size: 16px;">
+    <input id="iptdata-debit" class="hginput" type="date" style="border: solid 1px #000;background: none; height: 40px; font-size: 16px;">
     <div>
     <label style="display: flex; font-size: 20px;">
     Repetir
