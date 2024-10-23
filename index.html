@@ -9,6 +9,7 @@
     <style>
         :root{
             --background-color: #ef1e92;
+            --wallpaper-color: #dfdfdf;
         }
         body{
             margin: 0;
@@ -84,7 +85,7 @@
         #newdebit-container{
             height: calc(100vh - 160px);
             overflow-y: auto; 
-            background: #fff;
+            background: var(--wallpaper-color);
         }
         .debit-info{
         margin-bottom: 5px;
@@ -95,7 +96,7 @@
         #debit-container {
         height: calc(100vh - 160px);
         overflow-y: auto; 
-        background: #fff;
+        background: var(--wallpaper-color);
         }
         #new-debit{
             background: #fff;
@@ -109,6 +110,7 @@
         .newdebit-form,
         input{
         margin-bottom: 5px;
+        background: none;
         }
         .hginput{
             height: 40px
