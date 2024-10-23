@@ -132,21 +132,20 @@ function AddDebit() {
     let debitForm = document.querySelector('.newdebit-form')
     let btnSaveDebit = document.getElementById('btnsave-debit')
     let iptValueDebit = document.getElementById('iptvalue-debit')
+    let iptDataDebit = document.getElementById('iptdata-debit')
+    iptDataDebit.value = `${year}-${(parseInt(value)+1).toString().padStart(2, '0')}-${new Date().getDate()}`
 
     iptValueDebit.addEventListener('input', () => {
-        // Remove tudo que não for dígito
-        let value = iptValueDebit.value.replace(/\D/g, '');
+        let moeda = iptValueDebit.value.replace(/\D/g, '');
     
-        // Converte para número e divide por 100
-        value = (value / 100).toFixed(2);
+        moeda = (moeda / 100).toFixed(2);
     
-        // Formata como moeda
-        if (value > 0) {
-            iptValueDebit.value = 'R$ ' + value.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        if (moeda > 0) {
+            iptValueDebit.value = 'R$ ' + moeda.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
         } else {
             iptValueDebit.value = '';
         }
-    });
+});
     
 
     checkRepetir.addEventListener('click', () => {
