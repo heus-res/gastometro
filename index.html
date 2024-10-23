@@ -9,6 +9,7 @@
     <style>
         :root{
             --background-color: #ef1e92;
+            --wallpaper-color: #dfdfdf;
         }
         body{
             margin: 0;
@@ -54,18 +55,16 @@
         }
         #back-date{
             margin-left: 10px;
-            padding-top: 4px;
         }
         #next-date{
             margin-right: 10px;
-            padding-top: 4px;
         }
         #btn-add {
             position: fixed;
             left: 0;
             right: 0;
             display: flex;
-            margin-top: -15px;
+            margin-top: -25px;
             justify-content: center;
         }
         .total-container, .saldo-container{
@@ -86,7 +85,7 @@
         #newdebit-container{
             height: calc(100vh - 160px);
             overflow-y: auto; 
-            background: #fff;
+            background: var(--wallpaper-color);
         }
         .debit-info{
         margin-bottom: 5px;
@@ -97,7 +96,7 @@
         #debit-container {
         height: calc(100vh - 160px);
         overflow-y: auto; 
-        background: #fff;
+        background: var(--wallpaper-color);
         }
         #new-debit{
             background: #fff;
@@ -111,6 +110,7 @@
         .newdebit-form,
         input{
         margin-bottom: 5px;
+        background: none;
         }
         .hginput{
             height: 40px
@@ -136,7 +136,7 @@
         #btnsave-debit{
             height: 25px;
             width: 100%;
-            background: #ffb75d;
+            background: linear-gradient(180deg, #ffa5d5, #f93a8a);
             height: 50px;
             width: 100%;
             border: 0;
@@ -145,7 +145,7 @@
             font-size: 15px;
         }
         #btnsave-debit:active{
-            background: #f1c894;
+            background: #ffcef9;
         }
     </style>
 </head>
