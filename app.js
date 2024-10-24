@@ -192,7 +192,7 @@ function AddDebit() {
             console.log(iptValueDebit.value.replace(/[^0-9,.]/g,''))
         async function teste(){
             try{
-            const response = fetch('https://heusapps.kinghost.net/gastometro:80/teste',{
+            const response = fetch('https://heusapps.kinghost.net/gastometro/teste',{
                 method: 'POST',
                 headers:{
                     'Content-Type' : 'application/json',
